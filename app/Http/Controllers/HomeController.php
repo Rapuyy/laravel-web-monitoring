@@ -10,4 +10,9 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    public function camera()
+    {
+        return view('camera.index');
+    }
 }

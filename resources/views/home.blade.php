@@ -19,6 +19,7 @@
         <div class="row">
             <div class="col-lg-12 justify-content-center">
                 <a href="{{ route('user.index') }}" class="btn btn-info">Manajemen Pengguna</a>
+                <a href="{{ route('camera') }}" class="btn btn-warning">Test Camera</a>
             </div>
         </div>
     </div>
