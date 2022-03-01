@@ -14,7 +14,6 @@
                 <div class="card-text">
                     <h5>Selamat datang di halaman management, <strong>{{ Auth::user()->name }}</strong></h5>
                     <a href="{{ route('user.add') }}" class="btn btn-success">Tambahkan Pengguna</a>
-                    <a href="{{ route('logout') }}" class="btn btn-danger">Logout</a>
                 </div>
 
                 <div class="table-responsive card-footer">

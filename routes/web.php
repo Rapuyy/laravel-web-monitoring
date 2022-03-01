@@ -34,11 +34,14 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('logout', [AuthController::class, 'logout'])->name('logout');
  
 });
-Route::group(['prefix' => 'management'], function () {
-    Route::get('/', [UserController::class, 'index'])->name('user.index');
-    Route::get('/add', [UserController::class, 'showAdminRegister'])->name('user.add');
-    Route::get('/edit/{id}', [UserController::class, 'edit'])->name('user.edit');
-    Route::put('/update', [UserController::class, 'update'])->name('user.update');
-    Route::post('/add', [UserController::class, 'adminRegister'])->name('user.register');
-    Route::delete('/delete/{id}', [UserController::class, 'delete'])->name('user.delete');
+
+Route::group(['middleware' => 'role:1'], function () {
+    Route::group(['prefix' => 'management'], function () {
+        Route::get('/', [UserController::class, 'index'])->name('user.index');
+        Route::get('/add', [UserController::class, 'showAdminRegister'])->name('user.add');
+        Route::get('/edit/{id}', [UserController::class, 'edit'])->name('user.edit');
+        Route::put('/update', [UserController::class, 'update'])->name('user.update');
+        Route::post('/add', [UserController::class, 'adminRegister'])->name('user.register');
+        Route::delete('/delete/{id}', [UserController::class, 'delete'])->name('user.delete');
+    });
 });
