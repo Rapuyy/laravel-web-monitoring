@@ -29,7 +29,7 @@
     <!-- Custom CSS -->
     @yield('css')
 </head>
-<body>
+<body @if(Request::path() === 'camera') onload="openSocket()" @endif>
     <!-- Navbar otw buat -->
     <div class="article">
       <nav class="main-header navbar navbar-expand-md navbar-light navbar-white bg-primary">
